@@ -1,0 +1,3 @@
+### Test welcome email
+
+GET http://localhost:3000/mail/test?to=eddymax3715@gmail.com&name=Max

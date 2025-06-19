@@ -1,0 +1,40 @@
+### Create a product (admin only)
+POST http://localhost:3000/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "shortDescription": "Hp Laptop",
+  "description": "This is a hp laptop with 8GB Ram and 256GB SSD",
+  "price": 25000,
+  "imageUrl": "https://example.com/samsung-tv.jpg",
+  "stockQuantity": 30,
+  "category": "Gadgets",
+  "tags": ["Hp", "Laptop"]
+}
+
+### Update product(admin only)
+PATCH http://localhost:3000/products/377765fc-413b-4e23-8168-b7e71fc129cf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+Content-Type: application/json
+
+{
+  "price": 50000
+}
+
+### Delete product(admin only)
+DELETE http://localhost:3000/products/68faba49-29fb-487b-bb7c-a2629b49c392
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+
+
+
+### Fetching All Products(All users)
+GET http://localhost:3000/products
+
+
+### Search By Name Or Description(All users)
+GET http://localhost:3000/products/search?query=Laptop
+
+
+

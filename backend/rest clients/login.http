@@ -1,0 +1,35 @@
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "duncanoyugi2001@gmail.com",
+  "password": "dante@7827"
+}
+
+
+### Login with new Password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "eddymax3715@gmail.com",
+  "password": "12345678"
+}
+
+### Admin Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@shopie.com",
+  "password": "admin123"
+}
+
+
+
+### Get Cart
+GET http://localhost:3000/cart
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyOTUxMTJhNi0zN2QzLTQzMDUtODY2Ni01NDE2NjllMDkzODIiLCJlbWFpbCI6ImR1bmNhbm95dWdpMjAwMUBnbWFpbC5jb20iLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3NTAyNzkwMjUsImV4cCI6MTc1MTE0MzAyNX0.THYphaKPC-xyObblN9wECRxaL8jc0zGanNFpVsR8ZO8
+
+

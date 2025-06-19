@@ -1,0 +1,6 @@
+### Uploading user profile
+PATCH http://localhost:3000/users/avatar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+Content-Type: multipart/form-data
+Body: form-data
+Key: file | File | Choose an image
