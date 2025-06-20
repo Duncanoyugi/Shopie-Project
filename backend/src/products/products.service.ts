@@ -76,7 +76,7 @@ export class ProductsService {
     console.log(`Found ${results.length} item(s) for "${name}"`);
 
     if (results.length === 0) {
-      return { message: 'No items matched your search.' };
+      return { message: 'No item matched your search.' };
     }
 
     return results;

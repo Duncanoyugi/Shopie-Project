@@ -4,14 +4,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4N
 Content-Type: application/json
 
 {
-  "name": "Laptop",
-  "shortDescription": "Hp Laptop",
-  "description": "This is a hp laptop with 8GB Ram and 256GB SSD",
-  "price": 25000,
-  "imageUrl": "https://example.com/samsung-tv.jpg",
-  "stockQuantity": 30,
-  "category": "Gadgets",
-  "tags": ["Hp", "Laptop"]
+  "name": "Suit",
+  "shortDescription": "A well designed vvip suit",
+  "description": "This suit is well designed to fit the trending fashion",
+  "price": 50000,
+  "imageUrl": "https://example.com/suit.jpg",
+  "stockQuantity": 60,
+  "category": "Clothing",
+  "tags": ["suit", "clothe"]
 }
 
 ### Update product(admin only)
