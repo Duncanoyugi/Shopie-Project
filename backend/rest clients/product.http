@@ -1,6 +1,6 @@
 ### Create a product (admin only)
 POST http://localhost:3000/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjOTJkOGZlOC01MWNjLTRjNjYtOWM4OC0wMWU4MjQ3NGI4ZWMiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTA2ODg0OTMsImV4cCI6MTc1MTU1MjQ5M30.OEkzo72p0Cd4mgm76cgL8W_UGy2WBBFE5ph8ndWpHsk
 Content-Type: application/json
 
 {
@@ -15,8 +15,8 @@ Content-Type: application/json
 }
 
 ### Update product(admin only)
-PATCH http://localhost:3000/products/377765fc-413b-4e23-8168-b7e71fc129cf
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWYyOTg4Ni04ZmY0LTQ5OTgtODA5ZC0wMjJkYWRkNGE3YjkiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTAzMjE0MzEsImV4cCI6MTc1MTE4NTQzMX0.cYuwSJSEA8FDOaoBew9R5uF85YaSmQ95xzJNXSZJiyc
+PATCH http://localhost:3000/products/e8ec22a9-1ea4-4f8a-a4c7-31440f85aff7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjOTJkOGZlOC01MWNjLTRjNjYtOWM4OC0wMWU4MjQ3NGI4ZWMiLCJlbWFpbCI6ImFkbWluQHNob3BpZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NTA2ODg0OTMsImV4cCI6MTc1MTU1MjQ5M30.OEkzo72p0Cd4mgm76cgL8W_UGy2WBBFE5ph8ndWpHsk
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ GET http://localhost:3000/products
 
 
 ### Search By Name Or Description(All users)
-GET http://localhost:3000/products/search?query=Laptop
+GET http://localhost:3000/products/search?query=Suit
 
 
 

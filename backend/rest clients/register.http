@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "fullName": "Elvis",
-  "email": "elvo@gmail.com",
+  "fullName": "Eddy",
+  "email": "eddymax3715@gmail.com",
   "password": "123456789",
   "phoneNumber": "0710592567",
   "address": "Nairobi, Kenya"
