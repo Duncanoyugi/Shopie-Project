@@ -1,0 +1,46 @@
+.user-management {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.user-management h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f9f9f9;
+}
+
+.btn.delete {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn.delete:hover {
+  background-color: #c0392b;
+}

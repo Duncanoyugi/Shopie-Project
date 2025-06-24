@@ -1,0 +1,36 @@
+<div class="user-management">
+  <h2>Manage Users</h2>
+
+  <input
+    type="text"
+    placeholder="Search by name or email"
+    [(ngModel)]="searchTerm"
+    (input)="search()"
+    class="search-input"
+  />
+
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="btn delete" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="isLoading">Loading users...</p>
+</div>

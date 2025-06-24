@@ -17,6 +17,14 @@ interface AuthResponse {
   };
 }
 
+export interface User {
+  id: string;
+  fullName: string;
+  email: string;
+  role: 'ADMIN' | 'CUSTOMER';
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +46,7 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-  storeUser(user: any): void {
+  storeUser(user: User): void {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
@@ -46,9 +54,9 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  getUser(): any {
+  getUser(): User | null {
     const user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null;
+    return user ? JSON.parse(user) as User : null;
   }
 
   isLoggedIn(): boolean {

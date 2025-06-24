@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <h2>Shopie Admin</h2>
+      <nav>
+        <a routerLink="/dashboard/admin" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+        <a routerLink="/dashboard/admin/products" routerLinkActive="active-link">Manage Products</a>
+        <a routerLink="/dashboard/admin/users" routerLinkActive="active-link">Manage Users</a>
+        <a routerLink="/dashboard/admin/orders" routerLinkActive="active-link">Orders</a>
+
+      </nav>
+    </div>
+    <button (click)="logout()">Logout</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,55 @@
+<div class="customer-dashboard">
+  <!-- Header -->
+  <header class="header">
+    <h1>Welcome, Customer</h1>
+    <p>Explore items and manage your profile.</p>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <h2>Your Profile</h2>
+    <form>
+      <label>
+        Full Name:
+        <input type="text" [(ngModel)]="userProfile.fullName" name="fullName" />
+      </label>
+      <label>
+        Email:
+        <input type="email" [(ngModel)]="userProfile.email" name="email" />
+      </label>
+      <label>
+        Phone Number:
+        <input type="text" [(ngModel)]="userProfile.phoneNumber" name="phoneNumber" />
+      </label>
+      <label>
+        Address:
+        <input type="text" [(ngModel)]="userProfile.address" name="address" />
+      </label>
+      <button type="button" (click)="updateProfile()">Update Profile</button>
+    </form>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section">
+    <input
+      type="text"
+      placeholder="Search by name or description"
+      [(ngModel)]="searchQuery"
+      (input)="searchProducts()"
+    />
+  </section>
+
+  <!-- Product Listing -->
+  <section class="products-section">
+    <h2>Available Products</h2>
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let item of filteredProducts">
+        <img [src]="item.imageUrl" alt="{{ item.name }}" />
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p><strong>Price:</strong> {{ item.price | currency }}</p>
+        <button (click)="addToCart(item)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+</div>

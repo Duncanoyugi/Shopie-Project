@@ -41,13 +41,21 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe({
       next: (res) => {
         this.authService.storeToken(res.accessToken);
-        this.authService.storeUser(res.user); // 👈 Add this
-        this.router.navigate(['/dashboard']);
-      },
+        this.authService.storeUser(res.user);
 
+        // Role-based redirection
+        if (res.user.role === 'ADMIN') {
+          this.router.navigate(['/dashboard/admin']);
+        } else if (res.user.role === 'CUSTOMER') {
+          this.router.navigate(['/dashboard/customer']);
+        } else {
+          this.router.navigate(['/login']); // fallback
+        }
+      },
       error: (err) => {
         this.errorMessage = err.error?.message || 'Login failed. Try again.';
       },
     });
   }
+
 }
