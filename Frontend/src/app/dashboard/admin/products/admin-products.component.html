@@ -19,7 +19,7 @@
       <input type="number" placeholder="Stock Quantity" [(ngModel)]="productForm.stockQuantity" name="stockQuantity" required />
       <input type="text" placeholder="Category" [(ngModel)]="productForm.category" name="category" required />
 
-      <!-- ✅ Updated tag input -->
+      <!-- Tag input -->
       <input
         type="text"
         placeholder="Tags (comma-separated)"
@@ -42,36 +42,38 @@
     </form>
   </section>
 
-  <!-- Product Table -->
-  <div *ngIf="filteredProducts.length === 0">
-    <p>No products found.</p>
-  </div>
+  <!-- Product Table (Hidden when form is shown) -->
+  <section *ngIf="!showForm">
+    <div *ngIf="filteredProducts.length === 0">
+      <p>No products found.</p>
+    </div>
 
-  <table *ngIf="filteredProducts.length > 0" class="products-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Short Desc</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Category</th>
-        <th>Available</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of filteredProducts">
-        <td>{{ product.name }}</td>
-        <td>{{ product.shortDescription }}</td>
-        <td>{{ product.price | currency }}</td>
-        <td>{{ product.stockQuantity }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.isAvailable ? 'Yes' : 'No' }}</td>
-        <td>
-          <button (click)="editProduct(product)">Edit</button>
-          <button (click)="deleteProduct(product.id!)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <table *ngIf="filteredProducts.length > 0" class="products-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Short Desc</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Available</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.name }}</td>
+          <td>{{ product.shortDescription }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.stockQuantity }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.isAvailable ? 'Yes' : 'No' }}</td>
+          <td>
+            <button (click)="editProduct(product)">Edit</button>
+            <button (click)="deleteProduct(product.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </div>

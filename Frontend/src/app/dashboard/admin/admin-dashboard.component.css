@@ -19,7 +19,6 @@ body, html {
 /* Sidebar styling */
 .sidebar {
   width: 260px;
-  height: 700px;
   background-color: #32dee1;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);

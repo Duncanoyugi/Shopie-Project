@@ -32,7 +32,6 @@ export class ProductsController {
   @Patch(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
-  @Patch(':id')
   updateProduct(@Param('id') id: string, @Body() dto: UpdateProductDto) {
     return this.productsService.updateProduct(id, dto);
   }

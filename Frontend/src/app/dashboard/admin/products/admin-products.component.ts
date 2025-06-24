@@ -111,7 +111,7 @@ export class AdminProductsComponent implements OnInit {
     };
 
     if (this.editingProduct && this.productForm.id) {
-      this.http.put(
+      this.http.patch(
         `http://localhost:3000/products/${this.productForm.id}`,
         payload,
         { headers }
