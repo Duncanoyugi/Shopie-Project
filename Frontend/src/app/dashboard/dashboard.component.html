@@ -1,0 +1,13 @@
+<div class="p-8">
+  <h1 class="text-2xl font-bold mb-4">Welcome {{ user?.fullName || 'User' }}!</h1>
+
+  <div *ngIf="isAdmin">
+    <p class="text-lg text-blue-600">You are logged in as <strong>Admin</strong>.</p>
+    <!-- Admin controls go here -->
+  </div>
+
+  <div *ngIf="isCustomer">
+    <p class="text-lg text-green-600">You are logged in as <strong>Customer</strong>.</p>
+    <!-- Customer dashboard goes here -->
+  </div>
+</div>

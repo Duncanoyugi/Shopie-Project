@@ -1,0 +1,54 @@
+/* Root container for the dashboard */
+.p-8 {
+  padding: 2rem; /* Equivalent to p-8 */
+  background-color: #f9fafb; /* Light gray background for a clean look */
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between elements */
+}
+
+/* Dashboard title */
+.text-2xl {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: #1a202c; /* Dark gray for contrast */
+  margin-bottom: 1rem; /* mb-4 */
+  line-height: 1.2; /* Improved readability */
+}
+
+/* Admin role message */
+.text-lg.text-blue-600 {
+  font-size: 1.125rem; /* text-lg */
+  color: #2563eb; /* text-blue-600 */
+  margin-bottom: 1rem; /* Consistent spacing */
+}
+
+/* Customer role message */
+.text-lg.text-green-600 {
+  font-size: 1.125rem; /* text-lg */
+  color: #16a34a; /* text-green-600 */
+  margin-bottom: 1rem; /* Consistent spacing */
+}
+
+/* Strong tag within role messages */
+.text-lg.text-blue-600 strong,
+.text-lg.text-green-600 strong {
+  font-weight: 600; /* Emphasize role name */
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .p-8 {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .text-2xl {
+    font-size: 1.25rem; /* Slightly smaller title on mobile */
+  }
+
+  .text-lg.text-blue-600,
+  .text-lg.text-green-600 {
+    font-size: 1rem; /* Adjust role text size */
+  }
+}

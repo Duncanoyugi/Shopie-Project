@@ -1,4 +1,11 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dtos/register.dto';
 import { LoginDto } from './dtos/login.dto';
@@ -10,8 +17,12 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('register')
-  register(@Body() dto: RegisterDto) {
-    return this.authService.register(dto);
+  @UseInterceptors(FileInterceptor('profileImage')) // 👈 handles file named 'profileImage'
+  register(
+    @UploadedFile() file: Express.Multer.File, // 👈 receives uploaded file
+    @Body() dto: RegisterDto // 👈 receives form fields
+  ) {
+    return this.authService.register(dto, file);
   }
 
   @Post('login')
@@ -23,6 +34,7 @@ export class AuthController {
   requestPasswordReset(@Body() dto: RequestPasswordResetDto) {
     return this.authService.requestPasswordReset(dto);
   }
+
   @Post('reset-password')
   resetPassword(@Body() dto: ResetPasswordDto) {
     return this.authService.resetPassword(dto);

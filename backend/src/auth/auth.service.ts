@@ -13,6 +13,7 @@ import { randomBytes } from 'crypto';
 import { RequestPasswordResetDto } from './dtos/request-password-reset.dto';
 import { ResetPasswordDto } from './dtos/reset-password.dto';
 import { BadRequestException } from '@nestjs/common';
+import { Express } from 'express'; 
 
 @Injectable()
 export class AuthService {
@@ -22,36 +23,38 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(dto: RegisterDto) {
-    const existingUser = await this.prisma.user.findUnique({
-      where: { email: dto.email },
-    });
+  
 
-    if (existingUser) {
-      throw new ConflictException('Email already in use');
-    }
+async register(dto: RegisterDto, file?: Express.Multer.File) {
+  const existingUser = await this.prisma.user.findUnique({
+    where: { email: dto.email },
+  });
 
-    const hashedPassword = await bcrypt.hash(dto.password, 10);
-
-    const user = await this.prisma.user.create({
-      data: {
-        fullName: dto.fullName,
-        email: dto.email,
-        passwordHash: hashedPassword,
-        avatar: dto.profileImage,
-        phoneNumber: dto.phoneNumber,
-        address: dto.address,
-        role: 'CUSTOMER', // ensure only customers register
-      },
-    });
-
-    // Send welcome email
-    await this.mailService.sendUserWelcome(user.email, user.fullName);
-
-    return {
-      message: 'Registration successful. A confirmation email has been sent.',
-    };
+  if (existingUser) {
+    throw new ConflictException('Email already in use');
   }
+
+  const hashedPassword = await bcrypt.hash(dto.password, 10);
+
+  const user = await this.prisma.user.create({
+    data: {
+      fullName: dto.fullName,
+      email: dto.email,
+      passwordHash: hashedPassword,
+      avatar: file?.filename || null, // 👈 Save file name if uploaded
+      phoneNumber: dto.phoneNumber,
+      address: dto.address,
+      role: 'CUSTOMER',
+    },
+  });
+
+  await this.mailService.sendUserWelcome(user.email, user.fullName);
+
+  return {
+    message: 'Registration successful. A confirmation email has been sent.',
+  };
+}
+
 
   async login(dto: LoginDto) {
     const user = await this.prisma.user.findUnique({
