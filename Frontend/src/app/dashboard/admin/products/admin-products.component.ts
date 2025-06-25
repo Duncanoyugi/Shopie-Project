@@ -30,7 +30,7 @@ export class AdminProductsComponent implements OnInit {
   searchTerm: string = '';
 
   productForm: Product = this.getEmptyForm();
-  tagInput: string = ''; // new
+  tagInput: string = '';
 
   showForm: boolean = false;
   editingProduct: boolean = false;
@@ -105,10 +105,13 @@ export class AdminProductsComponent implements OnInit {
 
     const payload = {
       ...this.productForm,
+      price: Number(this.productForm.price),
+      stockQuantity: Number(this.productForm.stockQuantity),
+      discountPercentage: Number(this.productForm.discountPercentage) || 0,
       tags: this.productForm.tags || [],
-      discountPercentage: this.productForm.discountPercentage || 0,
       isAvailable: this.productForm.isAvailable ?? true
     };
+
 
     if (this.editingProduct && this.productForm.id) {
       this.http.patch(

@@ -17,6 +17,7 @@ interface UserProfile {
   email: string;
   phoneNumber: string;
   address?: string;
+  profileImage?: string;
 }
 
 @Component({
@@ -32,14 +33,17 @@ export class CustomerDashboardComponent implements OnInit {
     fullName: '',
     email: '',
     phoneNumber: '',
-    address: ''
+    address: '',
+    profileImage: ''
   };
 
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
   searchQuery = '';
-
   cart: Product[] = [];
+
+  showProfile = false;
+  selectedFile: File | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -48,8 +52,12 @@ export class CustomerDashboardComponent implements OnInit {
     this.fetchProducts();
   }
 
+  toggleProfile(): void {
+    this.showProfile = !this.showProfile;
+  }
+
   fetchProfile(): void {
-    const user = JSON.parse(localStorage.getItem('user')!);
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
     if (user?.id) {
       this.http.get<UserProfile>(`http://localhost:3000/users/${user.id}`).subscribe({
         next: (data) => this.userProfile = data,
@@ -62,6 +70,25 @@ export class CustomerDashboardComponent implements OnInit {
     this.http.put(`http://localhost:3000/users/${this.userProfile.id}`, this.userProfile).subscribe({
       next: () => alert('Profile updated successfully!'),
       error: () => alert('Failed to update profile')
+    });
+  }
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
+
+  uploadProfileImage(): void {
+    if (!this.selectedFile) return alert('No file selected.');
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    this.http.post(`http://localhost:3000/users/${this.userProfile.id}/upload`, formData).subscribe({
+      next: (res: any) => {
+        this.userProfile.profileImage = res.url || '';
+        alert('Profile photo updated!');
+      },
+      error: () => alert('Failed to upload photo')
     });
   }
 

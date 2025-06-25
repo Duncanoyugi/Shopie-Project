@@ -1,46 +1,41 @@
 .customer-dashboard {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 2rem;
-  background-color: #f5f7fa;
-  color: #333;
-  min-height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Header */
 .header {
-  text-align: center;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.25rem;
-  color: #2c3e50;
+.toggle-profile-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.header p {
-  font-size: 1rem;
-  color: #555;
+.toggle-profile-btn:hover {
+  background-color: #0056b3;
 }
 
-/* Profile Section */
 .profile-section {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.profile-section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  color: #1e90ff;
 }
 
 .profile-section form {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .profile-section label {
@@ -49,98 +44,61 @@
   font-weight: 500;
 }
 
-.profile-section input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 0.25rem;
+.profile-photo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.profile-photo input {
+  flex: 1;
+}
+
+.products-section input[type="text"] {
+  width: 100%;
+  padding: 10px;
   font-size: 1rem;
-}
-
-.profile-section button {
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.profile-section button:hover {
-  background-color: #0056b3;
-}
-
-/* Search Section */
-.search-section {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.search-section input {
-  width: 60%;
-  max-width: 400px;
-  padding: 0.6rem;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  font-size: 1rem;
-}
-
-/* Products Section */
-.products-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .product-card {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
+  border-radius: 8px;
 }
 
 .product-card img {
-  width: 100%;
-  max-height: 160px;
+  max-width: 100%;
+  height: 160px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-}
-
-.product-card h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.product-card p {
-  color: #666;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
 .product-card button {
-  margin-top: 0.75rem;
   background-color: #28a745;
   color: white;
-  font-weight: 600;
+  padding: 8px 14px;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .product-card button:hover {
-  background-color: #1e7e34;
+  background-color: #218838;
 }
